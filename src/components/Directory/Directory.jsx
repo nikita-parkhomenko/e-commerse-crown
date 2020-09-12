@@ -3,7 +3,7 @@ import React from 'react';
 import './Directory.scss';
 
 import { sections } from '../../data/data';
-import { MenuItem } from '../MenuItem/MenuItem';
+import MenuItem from '../MenuItem/MenuItem';
 
 export class Directory extends React.Component {
   state = {
