@@ -1,0 +1,35 @@
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .logo-container {
+    height: 100%;
+    width: 70px;
+    padding: 25px;
+  }
+
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      padding: 5px 10px;
+      font-size: 20px;
+      margin-right: 5px;
+      box-sizing: border-box;
+      transition: 0.4s all;
+      border-radius: 5px;
+
+      &:hover {
+        transform: scale(1.15);
+        background-color: rgb(235, 235, 235);
+      }
+    }
+  }
+}
