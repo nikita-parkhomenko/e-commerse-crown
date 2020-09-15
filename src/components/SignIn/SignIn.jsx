@@ -1,61 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './SignIn.scss';
 
 import { FormInput } from '../FormInput/FormInput';
 import { CustomButton } from '../CustomButton/CustomButton';
 
-export class SignIn extends React.Component {
-  state = {
-    email: '',
-    password: '',
-  };
+export const SignIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  changeHandler = event => {
-    const { name, value } = event.target;
-
-    this.setState({ [name]: value });
-  }
-
-  submitHandler = event => {
+  const submitHandler = (event) => {
     event.preventDefault();
 
-    this.setState({ 
-      email: '',
-      password: '',
-     });
+    alert('You are signed in!')
+    setEmail('');
+    setPassword('');
   }
 
-  render() {
-    const { email, password } = this.state;
-    return(
-      <div className="sign-in">
-        <h1 className="title">I already have an account</h1>
-        <span>Sign in with your Email and Password</span>
+  return(
+    <div className="sign-in">
+      <h1 className="title">I already have an account</h1>
+      <span>Sign in with your Email and Password</span>
+  
+      <form onSubmit={submitHandler}>
+          <FormInput
+            changeHandler={e => setEmail(e.target.value)}
+            name="email"
+            value={email}
+            type="email"
+            label="email"
+            required
+          />
+        
+          <FormInput
+            changeHandler={e => setPassword(e.target.value)}
+            name="password"
+            value={password}
+            type="password"
+            label="password"
+            required
+          />
+        <CustomButton type="submit"> Sign in </CustomButton>
+      </form>
 
-        <form onSubmit={this.submitHandler}>
-
-            <FormInput
-              changeHandler={this.changeHandler}
-              name="email"
-              value={email}
-              type="email"
-              label="email"
-              required
-            />
-          
-            <FormInput
-              changeHandler={this.changeHandler}
-              name="password"
-              value={password}
-              type="password"
-              label="password"
-              required
-            />
-
-          <CustomButton type="submit"> Sign in </CustomButton>
-        </form>
-      </div>
-    )
-  }
+    </div>
+  )
 }
